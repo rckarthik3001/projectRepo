@@ -1,5 +1,5 @@
 const Admin = require("../models/adminModel");
-const Jobs = require("../models/jobsModel");
+const Jobs = require("../models/jobModel");
 const Student = require("../models/studentModel");
 const authenticateJwt = require("../middlewares/adminAuth");
 const jwt = require('jsonwebtoken');
