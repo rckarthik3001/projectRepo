@@ -1,50 +1,19 @@
 //student routes
-const Student = require("../models/studentModel");
-const authenticateStudent = require("../middlewares/studentAuth");
-const jwt = require('jsonwebtoken');
-const express = require("express");
+const express = require('express');
+const { registerStudent,getProfile,getJobs,getStatus,updateProfile,applyJob } = require('../controllers/studentController.js');
+const authMiddleware = require('../middleware/authMiddleware.js');
+const {loginStudent} = require('../controllers/authController.js')
 const router = express.Router();
-//const bcrypt = require("bcryptjs");
 
+// Route for registering a student
+// router.post('/register', registerStudent);
+// router.get('/profile',authMiddleware('student'),getProfile);
+// router.post('/login',loginStudent);
+// router.put('/update-profile',authMiddleware('student'),updateProfile);
+// router.get('/jobs',getJobs);
+// router.post('/job-apply/:jobid',authMiddleware('student'),applyJob);
+// router.get('/applications' ,authMiddleware('student'),getStatus);
 
-router.use(express.json());
-
-
-router.post("/register",async (req,res)=>{
-    const {name,email,password,confirmPassword,rollno} = req.body;
-    const user = await Student.findOne({email});
-    if(user) return res.status(400).json({msg:"Username already exists"});
-    if(password !== confirmPassword) return res.status(400).json({msg:"Passwords do not match"});
-    else{
-        const newStudent  = new  Student({name,email,password,rollno});
-        await newStudent.save();
-        const token = authenticateStudent.generateToken(user);
-        res.json({ message: 'User created successfully', token });    
-    }
-});
-
-
-router.post("/login", async (req,res)=>{
-    const {email, password} = req.headers;
-    const user = await Student.findOne({ email, password });
-    if (user) {
-        const token =  authenticateStudent.generateToken(user);
-        res.json({ message: 'Logged in successfully', token });
-    }else {
-        res.status(403).json({ message: 'Invalid username or password' });
-    }    
-});
-
-router.get("/profile",authenticateStudent.authenticateToken ,async (req,res)=>{
-    try{
-        const studentId = req.user.rollno;
-        const students = await Student.findOne({studentId});
-        res.send(students);
-    }catch(err){
-        res.status(500).send({message:err});
-    }
-        
-});
 module.exports = router;
 
 

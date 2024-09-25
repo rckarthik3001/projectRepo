@@ -1,0 +1,9 @@
+{
+  "title":"front-end dev",
+  "company": "Accenture",
+  "location" : "Hyderabad",
+  "jobType" : "Internship",
+  "salary" : "30k(per month)",
+  "description":"Good front end skills with frameworks",
+  "eligibilityCriteria" : "2025 batch"
+}

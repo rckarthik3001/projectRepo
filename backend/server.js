@@ -1,8 +1,9 @@
 const express = require('express');
-//const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/database.js');
+const authRoutes = require('./routes/authRoutes.js');
+
 dotenv.config();
 
 
@@ -18,8 +19,11 @@ connectDB();
 
 
 // Routes
+
 app.use('/student',require('./routes/studentRoutes.js'));
 app.use('/admin',require('./routes/adminRoutes.js'));
+app.use('/api/auth', authRoutes);
+
 
 // Start the server
 const PORT = 5050;
