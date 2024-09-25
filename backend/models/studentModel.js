@@ -2,12 +2,26 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const studentSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  enrollmentNumber: { type: String, required: true },
-  department: { type: String, required: true },
-  year: { type: Number, required: true }
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    rollNumber: { type: String, required: true ,unique: true},
+    department: { type: String, required: true },
+    year: { type: String, required: true },
+    personalInfo : {
+    address: { type: String },
+    phone: { type: String },
+    bloodGroup: { type: String },
+    aadharNumber : {type : String},
+    panNumber : {type : String},
+    caste : {type : String},
+    gender : {type :String,
+    enum: ['Male', 'Female', 'Other']}
+  },
+  myJobs : [{
+    type : mongoose.Schema.Types.ObjectId,
+    ref : 'Job'
+  }]
 });
 
 // Hash password before saving the student
