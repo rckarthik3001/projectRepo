@@ -1,12 +1,25 @@
+// src/pages/Dashboard.js
 import React from 'react';
-import StudentDashboard from '../components/Dashboard/StudentDashboard.js';
+import Sidebar from '../components/Sidebar.js';
+import Header from '../components/Header.js';
+import ProfileCard from '../components/ProfileCard.js';
+import './Students.css';
 
-function Students() {
+function Dashboard() {
     return (
-        <div>
-            <StudentDashboard />
+
+        <div className="dashboard">
+            <Header />
+            <Sidebar/>
+            
+            
+                
+                <div className="content-area">
+                    <ProfileCard />
+                </div>
+            
         </div>
     );
 }
 
-export default Students;
+export default Dashboard;

@@ -112,4 +112,9 @@ const getMyJobs = async (req,res) => {
 }
 
 
-module.exports = { registerStudent,getProfile,updateProfile,getAllJobs ,applyJob,getMyJobs};
+const uploadDoc=(req,res,next) =>{
+  console.log("Uploaded successfully :",req.file)
+  next()
+}
+
+module.exports = { registerStudent,getProfile,updateProfile,getAllJobs ,applyJob,getMyJobs,uploadDoc};

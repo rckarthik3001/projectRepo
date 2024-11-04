@@ -1,12 +1,20 @@
+// src/pages/Dashboard.js
 import React from 'react';
-import PlacementDashboard from '../components/Dashboard/PlacementDashboard.js';
+import Navbar from '../components/AdminNavbar.js';
+import Header from '../components/Header.js';
+import ProfileCard from '../components/ProfileCard.js';
+import './Students.css';
 
-function Placements() {
+function Dashboard() {
     return (
-        <div>
-            <PlacementDashboard />
+        <div className="dashboard">
+            <Header />
+            <Navbar />
+                <div className="content-area">
+                    <ProfileCard />
+                </div>
         </div>
     );
 }
 
-export default Placements;
+export default Dashboard;

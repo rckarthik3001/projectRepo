@@ -1,7 +1,8 @@
 import {React} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Layout/Header.js';
-import Footer from './components/Layout/Footer.js';
+// src/index.js or src/App.js
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Home from './pages/Home.js';
 import Students from './pages/Students.js';
 import Placements from './pages/Placements.js';
@@ -12,16 +13,15 @@ function App() {
     return (
       <>
         <Router>
-            <Header />
+            {/* <Header /> */}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/students" element={<Students />} />
                 <Route path="/placements" element={<Placements />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-                
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
         </Router>
       </>
     );

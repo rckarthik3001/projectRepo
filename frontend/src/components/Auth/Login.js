@@ -1,43 +1,73 @@
+// src/LoginPage.js
+
 import React, { useState } from 'react';
-//import { useAuth } from '../../hooks/useAuth';
+import './login.css';  // Ensure styles are applied
 
-function Login() {
-    const [email, setEmail] = useState('');
+function LoginPage() {
+    const [role, setRole] = useState('student');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    //const { login } = useAuth();
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Logging in:",email);
-        //login(email, password);
 
+    const handleLogin = (e) => {
+        e.preventDefault();
+        console.log(`Logging in as ${role} with username: ${username} and password: ${password}`);
+        if (role === 'student') {
+            // Navigate to student dashboard
+        } else {
+            // Navigate to admin dashboard
+        }
     };
 
     return (
         <div className="login-container">
-            <h2>Login</h2>
-            <button className="google-login">Sign in with Google</button>
-            <button className="facebook-login">Sign in with Facebook</button>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    type="email" 
-                    placeholder="Email" 
-                    // value={email}
-                    // onChange={(e) => setEmail(e.target.value)}
-                    // required 
-                />
-                <input 
-                    type="password" 
-                    placeholder="Password" 
-                    // value={password}
-                    // onChange={(e) => setPassword(e.target.value)}
-                    // required 
-                />
+        <div className="login-page">
+            <h2>Placement Management System</h2>
+            <form onSubmit={handleLogin}>
+                <div className="role-selection">
+                    <label>
+                        <input
+                            type="radio"
+                            value="student"
+                            checked={role === 'student'}
+                            onChange={() => setRole('student')}
+                        />
+                        Student
+                    </label>
+                    <label>
+                        <input
+                            type="radio"
+                            value="admin"
+                            checked={role === 'admin'}
+                            onChange={() => setRole('admin')}
+                        />
+                        Admin
+                    </label>
+                </div>
+
+                <div className="form-group">
+                    <label>Username:</label>
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Password:</label>
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+
                 <button type="submit">Login</button>
             </form>
-            
+        </div>
         </div>
     );
 }
 
-export default Login;
+export default LoginPage;
