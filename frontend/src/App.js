@@ -8,6 +8,9 @@ import Students from './pages/Students.js';
 import Placements from './pages/Placements.js';
 import Login from './components/Auth/Login.js';
 import Signup from './components/Auth/Signup.js';
+import PlacementDrive from './components/PlacementDrive.js';
+import CompanyDetails from './components/CompanyDetails.js';
+import Companies from './pages/Companies.js';
     
 function App() {
     return (
@@ -20,6 +23,9 @@ function App() {
                 <Route path="/placements" element={<Placements />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/placement-drive" element={<PlacementDrive />} />
+              <Route path="/company-details" element={<CompanyDetails />} />
+              <Route path="/companies" element={<Companies />} />
             </Routes>
             {/* <Footer /> */}
         </Router>
