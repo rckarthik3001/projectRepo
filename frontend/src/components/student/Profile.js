@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Profile.css';
 
 const ProfilePage = () => {
   const [studentData, setStudentData] = useState({
-    name: "John Doe",
-    rollNo: "CS12345",
-    section: "D",
-    branch: "CSE",
-    cgpa: "9.0",
-    email: "john.doe@example.com",
-    phone: "1234567890"
+    name : "",
+    department : "",
+    section : "",
+    rollNumber : "",
+    email : "",
+    phone : "",
+    cgpa : ""
   });
-
   const [editableFields, setEditableFields] = useState({
     section: false,
     branch: false,
@@ -19,6 +18,34 @@ const ProfilePage = () => {
     email: false,
     phone: false
   });
+
+  const fetchStudentData = async () => {
+    try{
+      const token = localStorage.getItem('token');
+      const response = await fetch("http://localhost:5050/student/profile",{
+        method : "GET",
+        headers : {
+          'Content-Type' : "application/json",
+          'Authorization' : `${token}`
+        }
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        // Set the student data in state
+        setStudentData(data); 
+      }else{
+        console.log("Error fetching student data : ");
+      }
+
+    } catch (error) {
+      console.error('Error fetching student data:', error);
+    }
+  }
+  useEffect(() => {
+    fetchStudentData();
+  },[]);
 
   const handleEditClick = (field) => {
     setEditableFields({ ...editableFields, [field]: !editableFields[field] });
@@ -39,7 +66,7 @@ const ProfilePage = () => {
       </div>
       <div className="profile-field">
         <label>Roll Number:</label>
-        <span>{studentData.rollNo}</span>
+        <span>{studentData.rollNumber}</span>
       </div>
 
       <div className="profile-field">
@@ -61,17 +88,17 @@ const ProfilePage = () => {
 
       <div className="profile-field">
         <label>Branch:</label>
-        {editableFields.branch ? (
+        {editableFields.department ? (
           <input
             type="text"
             name="branch"
-            value={studentData.branch}
+            value={studentData.department}
             onChange={handleInputChange}
             onBlur={() => handleEditClick("branch")}
           />
         ) : (
           <span onClick={() => handleEditClick("branch")}>
-            {studentData.branch}
+            {studentData.department}
           </span>
         )}
       </div>
@@ -128,6 +155,6 @@ const ProfilePage = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ProfilePage;

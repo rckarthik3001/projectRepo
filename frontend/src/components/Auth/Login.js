@@ -7,14 +7,38 @@ function LoginPage() {
     const [role, setRole] = useState('student');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error,setError] = useState('');
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
+        setError('');
         console.log(`Logging in as ${role} with username: ${username} and password: ${password}`);
-        if (role === 'student') {
-            // Navigate to student dashboard
-        } else {
-            // Navigate to admin dashboard
+        const url = role === "student" ? 'http://localhost:5050/api/login/student' : 'http://localhost:5050/api/login/admin';
+
+        try{
+            const response = await fetch(url,{
+                method: 'POST',
+                headers : { 'Content-Type' : 'application/json'},
+                body : JSON.stringify({email : username,password}),
+            });
+
+            const data = await response.json();
+
+            if(response.ok){
+                console.log("Login Successful");
+                localStorage.setItem('token',data.token);
+
+                if(role == 'student'){
+                    window.location.href = "/students";
+                }else{
+                    window.location.href = "/placements";
+                }
+            }else{
+                setError(data.error || "Login Failed");
+            }
+        }catch(error){
+            console.error("Login error: ",error);
+            setError('An error occurred , Please try again');
         }
     };
 

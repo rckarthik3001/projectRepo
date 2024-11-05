@@ -7,7 +7,7 @@ const Dashboard = () => {
       <div className="ds1">
         <div>
           <h1>
-            Welcome! Name
+            Welcome! Student Dashboard
           </h1>
           
         </div>

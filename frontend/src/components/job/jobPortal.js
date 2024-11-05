@@ -50,7 +50,7 @@ const JobPortal = () => {
             {selectedJob && (
                 <JobDetailModal job={selectedJob} onClose={() => setSelectedJob(null)} />
             )}
-            <Link to='/new-job-post' >Create Job Posting</Link>
+            <Link to='/new-job-post' className='text-center'>Create Job Posting</Link>
         </div>
     );
 };
