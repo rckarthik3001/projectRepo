@@ -5,6 +5,7 @@ import JobSearchBar from './jobSearchBar.js';
 import JobSortOptions from './jobSortOptions.js';
 import LoadingSpinner from './loadingSpinner.js';
 import JobDetailModal from './jobDetailModel.js';
+import CompanyComp from '../admin/CompaniesList.js'
 import { Link } from 'react-router-dom';
 import './jobportal.css';
 
@@ -34,7 +35,11 @@ const JobPortal = () => {
 
     return (
         <div className="job-portal-container">
-            <h1 className="text-2xl text-center font-bold mb-4">Job Postings</h1>
+            <h1 className="text-2xl text-center font-bold mb-3.5 mt-4">Job Postings</h1>
+            <div className="button-container">
+                <Link to="/new-job-post" className="link-button">Create Job Posting</Link>
+            </div>
+
             < div className='job-search-container'>
                 <JobSearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
                 <JobFilter filters={filters} onFilterChange={setFilters} />
@@ -50,7 +55,8 @@ const JobPortal = () => {
             {selectedJob && (
                 <JobDetailModal job={selectedJob} onClose={() => setSelectedJob(null)} />
             )}
-            <Link to='/new-job-post' >Create Job Posting</Link>
+            <CompanyComp/>
+            
         </div>
     );
 };
