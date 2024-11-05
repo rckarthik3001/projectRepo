@@ -11,7 +11,6 @@ const CompaniesList = () => {
 
     return (
         <div className="companies-list">
-            <h1>Available Companies</h1>
             <div className="companies-container">
                 {sortedCompanies.map((company) => (
                     <Link to={`/company/${company.id}`} key={company.id} className="company-box">

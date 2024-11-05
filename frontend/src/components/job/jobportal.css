@@ -7,7 +7,7 @@
 
 .searchbar {
     width : 100%;
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 .addjob-container{
@@ -33,4 +33,27 @@
     width : 75%;
     padding : 5px;
     border : 2px solid blue;
+}
+
+/* Add this CSS to your main stylesheet or a component-specific stylesheet */
+.link-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff; /* Adjust color as needed */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none; /* Removes underline */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.link-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }
