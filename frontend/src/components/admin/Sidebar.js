@@ -7,7 +7,7 @@ const Sidebar = () => {
       <div className="p-4 font-bold text-2xl text-center">Admin Dashboard</div>
       <ul className="bg-blue-800 text-white w-full h-1/4 flex flex-co items-center justify-evenly">
         <NavLink
-          to="/dashboard"
+          to="/placements"
           className="p-4 hover:bg-blue-700"
           activeClassName="bg-blue-700"
         >
@@ -21,14 +21,14 @@ const Sidebar = () => {
           Job Postings
         </NavLink>
         <NavLink
-          to="/students"
+          to="/addStudent"
           className="p-4 hover:bg-blue-700"
           activeClassName="bg-blue-700"
         >
-          Students
+          AddStudent
         </NavLink>
         <NavLink
-          to="/companies"
+          to="/companycompadmin"
           className="p-4 hover:bg-blue-700"
           activeClassName="bg-blue-700"
         >
@@ -39,14 +39,14 @@ const Sidebar = () => {
           className="p-4 hover:bg-blue-700"
           activeClassName="bg-blue-700"
         >
-          Applications
+          Students
         </NavLink>
         <NavLink
-          to="/reports"
+          to="/logout"
           className="p-4 hover:bg-blue-700"
           activeClassName="bg-blue-700"
         >
-          Reports
+          Logout
         </NavLink>
       </ul>
     </aside>

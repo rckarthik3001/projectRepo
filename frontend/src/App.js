@@ -12,9 +12,13 @@ import Dashboard from './components/admin/Dashboard.js';
 import JobPortal from './pages/admin/jobpostings.js';
 import AddJobPost from './components/job/newJob.js';
 import PlacementDrive from './components/PlacementDrive.js';
-import CompanyDetails from './components/CompanyDetails.js';
-
-    
+import ProfileCom from './components/student/Profile.js';
+import ProfilePage from './pages/student/ProfilePage.js';
+import AddStdPage from './pages/admin/AddStudPage.js';
+import AddStdComp from './components/admin/AddStudent.js'
+import CompanyComp from './components/admin/CompaniesList.js'
+import CompanyDetails from './components/admin/CompanyDetails.js'
+import CompanyCompAdmin from './components/admin/CompanyListAdmin.js'
 function App() {
     return (
       <>
@@ -23,11 +27,19 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/placements" element={<Placements />} />
+                <Route path="/students" element={<Students />} />
+                <Route path="/addStudent" element={<AddStdPage />} />
+                <Route path="/addStudComp" element={<AddStdComp />} />
+                <Route path="/profile" element={<ProfileCom />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/jobpostings" element={<JobPortal />} />
+                <Route path="/profilepage" element={<ProfilePage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/new-job-post" element = {<AddJobPost />} />
+                <Route path="/companycomp" element={<CompanyComp />} />
+                <Route path="/company/:id" element={<CompanyDetails />} />
+                <Route path="/companycompAdmin" element={<CompanyCompAdmin />} />
             </Routes>
             {/* <Footer /> */}
         </Router>
