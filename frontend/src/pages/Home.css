@@ -1,0 +1,79 @@
+/* General page styling */
+.homepage {
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 2em;
+  }
+  
+  .login-button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .placement-section {
+    background-color: #f8f8f8;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .placement-section h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .placement-images {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .placement-images img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .placement-stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-item p {
+    font-size: 1.5em;
+    margin: 0;
+    color: #8bc34a;
+  }
+  
+  .stat-item span {
+    font-size: 0.9em;
+    color: #bbb;
+  }
+  
