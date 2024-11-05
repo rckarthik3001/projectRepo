@@ -13,7 +13,7 @@ function LoginPage() {
         e.preventDefault();
         setError('');
         console.log(`Logging in as ${role} with username: ${username} and password: ${password}`);
-        const url = role === "student" ? 'http://localhost:5050/api/login/student' : 'http://localhost:5050/api/login/admin';
+        const url = role === "student" ? 'http://localhost:5050/auth/login/student' : 'http://localhost:5050/auth/login/admin';
 
         try{
             const response = await fetch(url,{
