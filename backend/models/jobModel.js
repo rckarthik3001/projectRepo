@@ -5,7 +5,7 @@ const jobSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    company: {
+    companyName: {
         type: String,
         required: true,
     },
@@ -27,13 +27,12 @@ const jobSchema = new mongoose.Schema({
         required: true,
     },
     eligibilityCriteria: {
-        type: String,
-        required: true,
+        type: String
     },
-    postedBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Admin',  // Assuming job is posted by admin/placement coordinator
-    },
+    // postedBy: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Admin',  // Assuming job is posted by admin/placement coordinator
+    // },
     applicants: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Student',  // Students applying for this job

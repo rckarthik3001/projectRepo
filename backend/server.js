@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 // Middleware
 app.use(express.json());
@@ -20,9 +20,9 @@ connectDB();
 
 // Routes
 
-app.use('/student',require('./routes/studentRoutes.js'));
-app.use('/admin',require('./routes/adminRoutes.js'));
-app.use('/api/auth', authRoutes);
+app.use('/api/student',require('./routes/studentRoutes.js'));
+app.use('/api/admin',require('./routes/adminRoutes.js'));
+app.use('/auth/', authRoutes);
 
 
 // Start the server

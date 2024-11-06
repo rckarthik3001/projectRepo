@@ -8,16 +8,16 @@ const studentSchema = new mongoose.Schema({
     rollNumber: { type: String, required: true ,unique: true},
     department: { type: String, required: true },
     year: { type: String, required: true },
-    personalInfo : {
+    section : {type : String},
     address: { type: String },
     phone: { type: String },
     bloodGroup: { type: String },
     aadharNumber : {type : String},
+    cgpa : {type : Number},
     panNumber : {type : String},
     caste : {type : String},
     gender : {type :String,
-    enum: ['Male', 'Female', 'Other']}
-  },
+    enum: ['Male', 'Female', 'Other']},
   myJobs : [{
     type : mongoose.Schema.Types.ObjectId,
     ref : 'Job'

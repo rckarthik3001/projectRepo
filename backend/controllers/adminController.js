@@ -23,12 +23,42 @@ const viewDashBoard = async(req,res) =>{
   res.send("Welcome to Admin DashBoard");
 }
 
-  //create a new job
-const createJob =  async (req, res) => {
-    const job = new Jobs(req.body);
-    await job.save();
-    res.json({ message: 'Job created successfully', jobId: job.id });
-};
+  const createJob = async (req, res) => {
+    console.log(req.body);
+      try {
+          // Validate if all required fields are present
+          
+          const { title, companyName, location, jobType, salary, description } = req.body;
+          console.log(companyName,location);
+  
+          if (!title || !companyName || !location || !jobType || !salary || !description) {
+              return res.status(400).json({ message: 'All required fields must be provided.' });
+          }
+  
+          // Create new job instance with the data from the request body
+          const job = new Jobs({
+              title,
+              companyName,
+              location,
+              jobType,
+              salary,
+              description,
+              // eligibilityCriteria: req.body.eligibilityCriteria || '', // Optional field
+              // Assuming req.body contains the admin ID who posted the job
+          });
+  
+          // Save the job to the database
+          await job.save();
+  
+          // Return success message with job ID
+          res.status(200).json({ message: 'Job created successfully', jobId: job.id });
+      } catch (error) {
+          // Log the error and return a 500 status with the error message
+          console.error('Error creating job:', error);
+          res.status(500).json({ message: 'Server error. Please try again later.' });
+      }
+  };
+  
   
   //update a job
   const updateJob = async (req, res) => {

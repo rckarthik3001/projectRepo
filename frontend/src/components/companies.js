@@ -23,6 +23,38 @@ const companies = [
         salary: "₹7,20,000",
         deadline: "2024-11-15",
         description: "Seeking a backend developer proficient in Node.js and databases.",
+    },
+    {
+        id: 4,
+        name: "Innovate Labs",
+        jobRole: "Backend Developer",
+        salary: "₹7,20,000",
+        deadline: "2024-11-15",
+        description: "Seeking a backend developer proficient in Node.js and databases.",
+    },
+    {
+        id: 3,
+        name: "Innovate Labs",
+        jobRole: "Backend Developer",
+        salary: "₹7,20,000",
+        deadline: "2024-11-15",
+        description: "Seeking a backend developer proficient in Node.js and databases.",
+    },
+    {
+        id: 3,
+        name: "Innovate Labs",
+        jobRole: "Backend Developer",
+        salary: "₹7,20,000",
+        deadline: "2024-11-15",
+        description: "Seeking a backend developer proficient in Node.js and databases.",
+    },
+    {
+        id: 3,
+        name: "Innovate Labs",
+        jobRole: "Backend Developer",
+        salary: "₹7,20,000",
+        deadline: "2024-11-15",
+        description: "Seeking a backend developer proficient in Node.js and databases.",
     }
 ];
 

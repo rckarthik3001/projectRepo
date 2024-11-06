@@ -32,12 +32,14 @@
     background-color: #f8f8f8;
     padding: 40px 20px;
     text-align: center;
+    background-color:antiquewhite;
   }
   
   .placement-section h2 {
     font-size: 1.8em;
     color: #333;
     margin-bottom: 20px;
+    
   }
   
   .placement-images {
@@ -48,10 +50,19 @@
   }
   
   .placement-images img {
-    width: 300px;
+    width: 476px;
     height: auto;
     border-radius: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+
   }
+  .placement-images img:hover{
+    transform: scale(1.04);
+    box-shadow: 0 8px 8px rgba(79, 77, 77, 0.2);
+  }
+
+
   
   .placement-stats {
     display: flex;
@@ -61,9 +72,21 @@
     padding: 20px;
     border-radius: 8px;
   }
-  
+  .box-row{
+    justify-content: space-around;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   .stat-item {
     text-align: center;
+  }
+  .stat-item :hover{
+    transform: scale(1.09);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
   .stat-item p {
@@ -77,3 +100,68 @@
     color: #bbb;
   }
   
+  .c1, .c2 {
+    display: block;
+    text-align: center; /* Center aligns text */
+    margin: 0;
+  }
+  
+  .c1 {
+    font-size: 1em; /* Adjust font size as needed */
+    color: #8bc34a; /* Example color */
+    margin-bottom: 4px; /* Space between h6 and h3 */
+  }
+  
+  .c2 {
+    font-size: 1.74em; /* Adjust font size as needed */
+    /* font-weight: bold; */
+    color: rgb(245, 242, 242); /* Example color */
+  }
+  
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.gallery a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery img {
+    max-width: 100px;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.gallery a:hover img {
+    opacity: 0.8;
+}

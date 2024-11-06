@@ -1,36 +1,46 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import './Sidebar.css';
+import Logout from "../Auth/Logout.js";
 
 const Sidebar = () => {
   return (
-    <aside className="w-1/4 bg-blue-800 h-screen flex flex-row fixed top-0 left-0">
-      <div className="p-4 font-bold text-2xl text-center">
+    <aside className="sidebar">
+      <div className="sidebar-header">
         <h1>Student Dashboard</h1>
-        </div>
-      <ul className="bg-blue-800 text-white w-full h-1/4 flex flex-co items-center justify-evenly">
+      </div>
+      <ul className="sidebar-menu">
         <NavLink
           to="/profilepage"
-          className="p-4 hover:bg-blue-700"
-          activeClassName="bg-blue-700"
+          className="sidebar-menu-item"
+          activeClassName="active"
         >
           Profile
         </NavLink>
         <NavLink
-          to="/companycomp"
-          className="p-4 hover:bg-blue-700"
-          activeClassName="bg-blue-700"
+          to="/companies"
+          className="sidebar-menu-item"
+          activeClassName="active"
         >
           Companies
         </NavLink>
-        
-        <NavLink
-          to="/reports"
-          className="p-4 hover:bg-blue-700"
-          activeClassName="bg-blue-700"
-        >
-          Logout
+        <NavLink to='/applications'
+        className="sidebar-menu-item"
+        activeClassName="active">
+          Applications
+        </NavLink>
+        <NavLink to='/notifications'
+        className="sidebar-menu-item"
+        activeClassName="active">
+          Notifications
+        </NavLink>
+        <NavLink to='/help'
+        className="sidebar-menu-item"
+        activeClassName="active">
+          Help
         </NavLink>
       </ul>
+      <Logout ></Logout>
     </aside>
   );
 };

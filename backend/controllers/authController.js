@@ -24,7 +24,6 @@ const generateToken = (id, role) => {
     }
   };
   
-  // Update admin login
   const loginAdmin = async (req, res) => {
     const { email, password } = req.body;
   

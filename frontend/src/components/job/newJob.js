@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // Import axios
 import "./jobportal.css";
-const AddJobPost = ({ onAddJob }) => {
+
+const AddJobPost = () => {
     const [jobDetails, setJobDetails] = useState({
         title: '',
-        company: '',
+        companyName: '',
         location: '',
         jobType: '',
         salary: '',
@@ -12,40 +14,50 @@ const AddJobPost = ({ onAddJob }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setJobDetails((prevDetails) => ({
-            ...prevDetails,
-            [name]: value,
-        }));
+        setJobDetails({...jobDetails,
+            [name]: value
+        });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        // Perform validation here if needed
+    const handleSubmit = async (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+    
+        console.log(jobDetails); // Log job details for debugging
+        const token = localStorage.getItem('token'); // Get the token from localStorage
+    
+        if (!token) {
+            console.error('No token found');
+            return;
+        }
+    
         try {
-            const response = await fetch('/jobs', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(jobDetails),
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to add job post');
+            const response = await axios.post(
+                'http://localhost:5050/api/admin/newjob', 
+                jobDetails,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `${token}`, // Ensure proper format for the token
+                    }
+                }
+            );
+    
+            if (response.status === 200) {
+                // Reset the form after successful submission
+                setJobDetails({
+                    title: '',
+                    companyName: '',
+                    location: '',
+                    jobType: '',
+                    salary: '',
+                    description: '',
+                });
+    
+                // Success message or callback
+                console.log('Job posted successfully');
             }
-
-            // Reset the form after successful submission
-            setJobDetails({
-                title: '',
-                company: '',
-                location: '',
-                jobType: '',
-                salary: '',
-                description: '',
-            });
-            onAddJob();
         } catch (error) {
-            console.error('Error adding job post:', error);
+            console.error('Error posting job:', error.response ? error.response.data : error.message);
         }
     };
 
@@ -70,9 +82,9 @@ const AddJobPost = ({ onAddJob }) => {
                     <label className="block text-sm font-medium mb-1" htmlFor="company">Company</label>
                     <input
                         type="text"
-                        name="company"
-                        id="company"
-                        value={jobDetails.company}
+                        name="companyName"
+                        id="companyName"
+                        value={jobDetails.companyName}
                         onChange={handleChange}
                         required
                         className="w-full border rounded-md p-2"
@@ -94,21 +106,25 @@ const AddJobPost = ({ onAddJob }) => {
 
                 <div className="mb-4">
                     <label className="block text-sm font-medium mb-1" htmlFor="jobType">Job Type</label>
-                    <input
-                        type="text"
+                    <select
                         name="jobType"
                         id="jobType"
                         value={jobDetails.jobType}
                         onChange={handleChange}
                         required
                         className="w-full border rounded-md p-2"
-                    />
+                    >
+                        <option value="">Select Job Type</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Internship">Internship</option>
+                    </select>
                 </div>
 
                 <div className="mb-4">
                     <label className="block text-sm font-medium mb-1" htmlFor="salary">Salary(per annum) </label>
                     <input
-                        type="number"
+                        type="text"
                         name="salary"
                         id="salary"
                         value={jobDetails.salary}

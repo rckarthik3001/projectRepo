@@ -43,6 +43,10 @@ function LoginPage() {
     };
 
     return (
+        <div className='login-bg'>
+            <header className="clgname">
+        <h1>CVR College of Engineering</h1>
+      </header>
         <div className="login-container">
         <div className="login-page">
             <h2>Placement Management System</h2>
@@ -89,6 +93,7 @@ function LoginPage() {
 
                 <button type="submit">Login</button>
             </form>
+        </div>
         </div>
         </div>
     );

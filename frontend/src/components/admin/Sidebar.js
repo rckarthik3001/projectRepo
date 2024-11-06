@@ -3,51 +3,65 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <aside className="w-1/4 bg-blue-800 h-screen flex flex-row fixed top-0 left-0">
-      <h1 className="p-4 font-bold text-2xl text-center">Admin Portal</h1>
-      <ul className="bg-blue-800 text-white w-full h-1/4 flex flex-co items-center justify-evenly">
-        <NavLink
-          to="/placements"
-          className="p-4 hover:bg-blue-700"
-          activeClassName="bg-blue-700"
-        >
-          Dashboard
-        </NavLink>
-        <NavLink
-          to="/jobpostings"
-          className="p-4 hover:bg-blue-700"
-          activeClassName="bg-blue-700"
-        >
-          Job Postings
-        </NavLink>
-        <NavLink
-          to="/addStudent"
-          className="p-4 hover:bg-blue-700"
-          activeClassName="bg-blue-700"
-        >
-          AddStudent
-        </NavLink>
-        <NavLink
-          to="/companycompadmin"
-          className="p-4 hover:bg-blue-700"
-          activeClassName="bg-blue-700"
-        >
-          Companies
-        </NavLink>
-        <NavLink
-          to="/applications"
-          className="p-4 hover:bg-blue-700"
-          activeClassName="bg-blue-700"
-        >
-          Students
-        </NavLink>
-        <NavLink
-          to="/logout"
-          className="p-4 hover:bg-blue-700"
-          activeClassName="bg-blue-700"
-        >
-          Logout
-        </NavLink>
+    <aside className="d-flex flex-column bg-gradient p-4 vh-100 position-fixed top-0 left-0 shadow-lg" style={{ width: '250px', background: 'linear-gradient(to right, #1E40AF, #2563EB)' }}>
+      <div className="text-center mb-5">
+        <h1 className="text-white">Admin Portal</h1>
+      </div>
+      <ul className="list-unstyled">
+        <li>
+          <NavLink
+            to="/placements"
+            className="d-block text-white p-3 rounded mb-2 hover-bg-primary"
+            activeClassName="bg-primary"
+          >
+            Dashboard
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/jobpostings"
+            className="d-block text-white p-3 rounded mb-2 hover-bg-primary"
+            activeClassName="bg-primary"
+          >
+            Job Postings
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/addStudent"
+            className="d-block text-white p-3 rounded mb-2 hover-bg-primary"
+            activeClassName="bg-primary"
+          >
+            Add Student
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/companycompadmin"
+            className="d-block text-white p-3 rounded mb-2 hover-bg-primary"
+            activeClassName="bg-primary"
+          >
+            Companies
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/applications"
+            className="d-block text-white p-3 rounded mb-2 hover-bg-primary"
+            activeClassName="bg-primary"
+          >
+            Students
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/logout"
+            className="d-block text-white p-3 rounded mb-2 hover-bg-danger"
+            activeClassName="bg-danger"
+          >
+            Logout
+          </NavLink>
+        </li>
       </ul>
     </aside>
   );

@@ -1,24 +1,22 @@
 import {React} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// src/index.js or src/App.js
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './pages/Home.js';
-import Students from './pages/student/app.js';
-import Placements from './pages/admin/app.js';
+import Students from './pages/Student/app.js';
+import Placements from './pages/Admin/app.js';
 import Login from './components/Auth/Login.js';
-import Signup from './components/Auth/Signup.js';
 import Dashboard from './components/admin/Dashboard.js';
-import JobPortal from './pages/admin/jobpostings.js';
+import JobPortal from './components/job/jobPortal.js';
 import AddJobPost from './components/job/newJob.js';
-import PlacementDrive from './components/PlacementDrive.js';
 import ProfileCom from './components/student/Profile.js';
-import ProfilePage from './pages/student/ProfilePage.js';
-import AddStdPage from './pages/admin/AddStudPage.js';
+import ProfilePage from './pages/Student/ProfilePage.js';
+import AddStdPage from './pages/Admin/AddStudPage.js';
 import AddStdComp from './components/admin/AddStudent.js'
-import CompanyComp from './components/admin/CompaniesList.js'
-import CompanyDetails from './components/admin/CompanyDetails.js'
+import Companies from './pages/Student/Companies.js';
+import CompanyDetails from './components/job/CompanyDetails.js'
 import CompanyCompAdmin from './components/admin/CompanyListAdmin.js'
+import Applications from './pages/Student/Applications.js';
 function App() {
     return (
       <>
@@ -35,9 +33,9 @@ function App() {
                 <Route path="/jobpostings" element={<JobPortal />} />
                 <Route path="/profilepage" element={<ProfilePage />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
+                <Route path="/applications" element={<Applications />} />
                 <Route path="/new-job-post" element = {<AddJobPost />} />
-                <Route path="/companycomp" element={<CompanyComp />} />
+                <Route path="/companies" element={<Companies />} />
                 <Route path="/company/:id" element={<CompanyDetails />} />
                 <Route path="/companycompAdmin" element={<CompanyCompAdmin />} />
             </Routes>

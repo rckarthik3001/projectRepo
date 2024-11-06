@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import companies from '../companies.js';
-import './CompaniesList.css';
+// import './CompaniesList.css';
 
 const CompaniesList = () => {
     const sortedCompanies = [...companies].sort(
